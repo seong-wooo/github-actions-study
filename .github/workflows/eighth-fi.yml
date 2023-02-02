@@ -1,0 +1,17 @@
+name: 8번째
+on: push
+jobs:
+  echo:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'Hello!'
+  echo-if:
+    runs-on: ubuntu-latest
+    if: github.reg_name == 'main'
+    steps:
+      - run: echo 'Hello, Main'
+  skip-ci:
+    runs-on: ubuntu-latest
+    if: $ {{ !contains(github.event.head_commit.message, 'skip ci') }}
+    stpes:
+      - run: echo 'Hello Skip CI!'

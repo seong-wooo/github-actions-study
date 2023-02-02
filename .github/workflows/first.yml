@@ -1,4 +1,4 @@
-name: test workflow
+name: test workflow1
 on: push
 jobs:
   echo:
